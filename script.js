@@ -46,7 +46,7 @@ axios.get(endpoint)
                     <span>${date}</span>
                     <h2>${title.toUpperCase()}</h2>
                 </div>
-            `;
+            `; // <img src="${url}" class="hidden">
 
         }
 
@@ -73,8 +73,23 @@ axios.get(endpoint)
 
             })
 
-        })
 
+            // Cards Image Click Event
+
+
+            // const hiddenImages = document.querySelectorAll('.hidden');
+
+
+            // hiddenImages.forEach(image => {
+
+            //     card.addEventListener('click', () => {
+
+            //         image.classList.remove('hidden');
+
+            //     })
+            // })
+
+        })
 
     })
     .catch(error => {

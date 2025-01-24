@@ -20,10 +20,15 @@ img {
     width: 100%;
 }
 
+/* Global Classes */
+
+.block {
+    display: block;
+}
 
 /* Title and Description */
 
-/* Sometype Mono */
+/* Edu Tas Beginner */
 
 h1 {
     font-family: "Edu TAS Beginner", serif;
@@ -31,14 +36,15 @@ h1 {
 }
 
 
-/* Edu Tas Beginner */
-
 .card h2 {
     font-family: "Edu TAS Beginner", serif;
     font-size: 2rem;
     word-wrap: break-word;
     width: 100%;
 }
+
+
+/* Sometype Mono */
 
 .card span {
     display: block;
@@ -100,7 +106,6 @@ header {
     top: 10px;
     left: 50%;
     transform: translate(-50%, -50%);
-    
 }
 
 
@@ -138,4 +143,8 @@ header {
         width: 75%;
     }
 
+}
+
+.hidden {
+    display: none;
 }
