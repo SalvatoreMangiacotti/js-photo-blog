@@ -36,6 +36,8 @@ h1 {
 .card h2 {
     font-family: "Edu TAS Beginner", serif;
     font-size: 2rem;
+    word-wrap: break-word;
+    width: 100%;
 }
 
 .card span {
@@ -71,7 +73,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 2rem;
 }
 
@@ -79,7 +81,8 @@ header {
 /* Card */
 
 .card {
-    width: 25%;
+    min-width: 25%;
+    width: 30%;
     padding: 1rem;
     background-color: white;
     position: relative;
@@ -106,6 +109,10 @@ header {
 
     .card {
         width: 45%;
+    }
+
+    .card h2 {
+        font-size: 1.5rem;
     }
 
 }
