@@ -10,6 +10,11 @@ rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano
     box-sizing: border-box;
 }
 
+body {
+    background-image: url('./img/cork.png');
+    background-position: center;
+    background-size: contain;
+}
 
 img {
     width: 100%;
@@ -21,14 +26,40 @@ img {
 /* Sometype Mono */
 
 h1 {
-    font-family: "Sometype Mono", serif;
+    font-family: "Edu TAS Beginner", serif;
+    font-size: 5.5rem;
 }
+
 
 /* Edu Tas Beginner */
 
-.card h2,
-span {
+.card h2 {
     font-family: "Edu TAS Beginner", serif;
+    font-size: 2rem;
+}
+
+.card span {
+    font-family: "Sometype Mono", serif;
+    color: rgb(133, 133, 133);
+    font-size: 1.2rem;
+}
+
+
+/* Header */
+
+header {
+    padding: 2rem;
+    text-align: center;
+    background-image: url('./img/wall.png');
+    background-position: center;
+    background-size: contain;
+}
+
+
+/* Main Container */
+
+#main_container {
+    padding: 4rem;
 }
 
 
@@ -39,15 +70,28 @@ span {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 
 /* Card */
 
 .card {
-    width: 30%;
-    background-color: lavender;
+    width: 25%;
+    padding: 1rem;
+    background-color: white;
+    position: relative;
+}
+
+
+/* Cards Pin */
+
+.card_pin {
+    position: absolute;
+    width: 35px;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -59,7 +103,7 @@ span {
 @media screen and (max-width:768px) {
 
     .card {
-        width: 40%;
+        width: 45%;
     }
 
 }
@@ -70,7 +114,7 @@ span {
 @media screen and (max-width:480px) {
 
     .card {
-        width: 50%;
+        width: 75%;
     }
 
 }

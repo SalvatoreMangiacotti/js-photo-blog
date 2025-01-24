@@ -21,7 +21,7 @@ axios.get(endpoint)
 
         // handle success
 
-        
+
         // console ouput of the objects array
 
         const stickyNotes = response.data;
@@ -42,9 +42,10 @@ axios.get(endpoint)
 
             cardsContainer.innerHTML += `
             <div class="card">
+            <img src="./img/pin.svg" class="card_pin">
                 <img src="${url}">
                 <span>${date}</span>
-                <h2>${title}</h2>
+                <h2>${title.toUpperCase()}</h2>
             </div>
             `;
 
