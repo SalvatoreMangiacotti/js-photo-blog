@@ -6,4 +6,13 @@
 // Milestone 3
 // Inseriamo il JavaScript ed effettuiamo una chiamata AJAX all’API, sfruttando la risposta per generare dinamicamente in pagina una serie di foto!
 
-console.log("Hello World");
+
+axios.get('https://lanciweb.github.io/demo/api/pictures/')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
