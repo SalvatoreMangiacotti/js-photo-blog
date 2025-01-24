@@ -1,0 +1,18 @@
+/* Milestone 1 */
+/* Sfruttando gli screen e gli asset in allegato riproduciamo la grafica proposta in maniera statica: utilizzando soltanto HTML e CSS e riproducendo una singola fotografia */
+
+/* Bonus
+rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano man mano una sotto l’altra ed il titolo abbia una dimensione adeguata */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Edu Tas Beginner */
+/* font-family: "Edu TAS Beginner", serif; */
+
+h1 {
+    font-family: "Sometype Mono", serif;
+}
