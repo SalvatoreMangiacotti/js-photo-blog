@@ -10,9 +10,55 @@ rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano
     box-sizing: border-box;
 }
 
+
+img {
+    width: 100%;
+}
+
+
 /* Edu Tas Beginner */
 /* font-family: "Edu TAS Beginner", serif; */
 
 h1 {
     font-family: "Sometype Mono", serif;
+}
+
+
+/* Card Container */
+
+.card_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card {
+    width: 30%;
+}
+
+
+/* Media Queries */
+
+
+/* Tablet */
+
+@media screen and (max-width:768px) {
+
+    .card {
+        width: 40%;
+    }
+
+}
+
+
+/* Mobile */
+
+@media screen and (max-width:480px) {
+
+    .card {
+        width: 50%;
+    }
+
 }
