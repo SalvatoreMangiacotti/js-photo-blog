@@ -11,7 +11,6 @@
 
 const cardsContainer = document.querySelector('.cards_container');
 
-
 // API //
 
 const endpoint = 'https://lanciweb.github.io/demo/api/pictures/';
@@ -51,6 +50,32 @@ axios.get(endpoint)
 
         }
 
+
+        // Cards Animations
+
+        // Select all the cards just created
+
+        const cardsList = document.querySelectorAll('.card');
+
+        // Loop over the cards list
+
+        cardsList.forEach(card => {
+
+            card.addEventListener('mouseover', () => {
+
+                card.classList.add('rotate');
+
+            })
+
+            card.addEventListener('mouseout', () => {
+
+                card.classList.remove('rotate');
+
+            })
+
+        })
+
+
     })
     .catch(error => {
 
@@ -58,3 +83,4 @@ axios.get(endpoint)
         console.log(error);
 
     })
+

@@ -88,6 +88,7 @@ header {
     padding: 1rem;
     background-color: white;
     position: relative;
+    transition: transform 0.3s ease-in-out;
 }
 
 
@@ -99,13 +100,13 @@ header {
     top: 10px;
     left: 50%;
     transform: translate(-50%, -50%);
+    
 }
 
 
 /* Animations */
 
-.card:hover {
-    transition: transform 0.3s ease-in-out;
+.rotate {
     transform: rotate(10deg);
     z-index: 999;
 }
