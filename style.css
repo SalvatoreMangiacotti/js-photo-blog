@@ -81,6 +81,8 @@ header {
 /* Card */
 
 .card {
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.555);
+    cursor: pointer;
     min-width: 25%;
     width: 30%;
     padding: 1rem;
@@ -97,6 +99,15 @@ header {
     top: 10px;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+/* Animations */
+
+.card:hover {
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(10deg);
+    z-index: 999;
 }
 
 
