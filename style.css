@@ -20,12 +20,6 @@ img {
     width: 100%;
 }
 
-/* Global Classes */
-
-.block {
-    display: block;
-}
-
 /* Title and Description */
 
 /* Edu Tas Beginner */
@@ -116,6 +110,21 @@ header {
     z-index: 999;
 }
 
+
+/* Modal Images */
+
+.modal_container{
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.modal_image{
+    width: 50%;
+}
 
 /* Media Queries */
 

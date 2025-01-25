@@ -42,11 +42,15 @@ axios.get(endpoint)
             cardsContainer.innerHTML += `
                 <div class="card">
                     <img src="./img/pin.svg" class="card_pin">
-                    <img src="${url}">
+                    <img src="${url}" class="images">
                     <span>${date}</span>
                     <h2>${title.toUpperCase()}</h2>
                 </div>
-            `; // <img src="${url}" class="hidden">
+
+                <div class="modal_container">
+                    <img class="modal_image hidden">
+                </div>
+            `;
 
         }
 
@@ -73,23 +77,44 @@ axios.get(endpoint)
 
             })
 
-
-            // Cards Image Click Event
-
-
-            // const hiddenImages = document.querySelectorAll('.hidden');
-
-
-            // hiddenImages.forEach(image => {
-
-            //     card.addEventListener('click', () => {
-
-            //         image.classList.remove('hidden');
-
-            //     })
-            // })
-
         })
+
+
+        // Select the modal image
+
+        const modalImage = document.querySelector(".modal_image");
+
+        // Select the card images
+
+        const images = document.querySelectorAll(".images");
+
+
+        // Loop over the images
+
+        images.forEach(image => {
+
+            // If i click on the image
+
+            image.addEventListener('click', () => {
+
+                // Remove the class hidden and show the modal image
+
+                modalImage.classList.remove('hidden');
+                modalImage.src = image.src;
+
+            })
+        });
+
+
+        // If i click on the modal image
+
+        modalImage.addEventListener('click', () => {
+
+            // Hide the modal image by adding the class hidden
+
+            modalImage.classList.add('hidden');
+
+        });
 
     })
     .catch(error => {
