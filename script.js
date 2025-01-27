@@ -3,14 +3,20 @@
 // https://lanciweb.github.io/demo/api/pictures/
 // Studiamo bene la risposta e i dati che ci fornisce iniziando a pensare a come poterli sfruttare.
 
+
 // Milestone 3
 // Inseriamo il JavaScript ed effettuiamo una chiamata AJAX all’API, sfruttando la risposta per generare dinamicamente in pagina una serie di foto!
 
 
-// Display Output Elements //
+// Select DOM elements
 
-const mainContainer = document.getElementById('main_container');
-const cardsContainer = document.querySelector('.cards_container');
+const cardsContainer = document.getElementById("cards_container");
+
+
+// Popup Images
+
+const popupContainer = document.getElementById("popup_container");
+
 
 // API //
 
@@ -19,93 +25,81 @@ const endpoint = 'https://lanciweb.github.io/demo/api/pictures/';
 axios.get(endpoint)
     .then(response => {
 
-        // handle success
+        // Endpoint data to work with
+
+        cardsData = response.data;
+
+        console.log(cardsData);
 
 
-        // console ouput of the objects array
+        // DISPLAY CARDS
 
-        const stickyNotes = response.data;
+        // Loop over the objects array
 
-        console.log(stickyNotes);
+        for (cardElement of cardsData) {
 
+            // Destructuring
 
-        // For loop over the array to get each object
+            const { url, date, title } = cardElement;
 
-        for (note of stickyNotes) { // Now we can work on the objects properties
-
-            // Destructuring 
-
-            const { date, title, url } = note;
-
-
-            // Display ouput (our images) on page
+            // Display cards on page
 
             cardsContainer.innerHTML += `
-                <div class="card">
-                    <img src="./img/pin.svg" class="card_pin">
-                    <img src="${url}" class="card_images">
-                    <span>${date}</span>
-                    <h2>${title.toUpperCase()}</h2>
-                </div>
-            `;
+            <div class="card">
+
+                <img src="./img/pin.svg" class="card_pin">
+                <img src="${url}" class="card_image">
+
+                <span>${date}</span>
+                <h2>${title}</h2>
+
+            </div>`
+
         }
 
-        mainContainer.innerHTML += `
-            <div class="modal_background">
-            <div class="modal_content">
-                <img class="modal_image hidden">
-            </div>
-            </div>
-        `;
 
+        // DISPLAY POPUP IMAGES
 
-        // Images Popup
+        const cardImages = document.querySelectorAll('.card_image');
 
-        // Select the modal container
+        // Loop over the cards images and dinamically display images on click
 
-        const modalBackground = document.querySelector('.modal_background');
+        cardImages.forEach((cardImage) => {
 
-        // Select the modal image
+            cardImage.addEventListener('click', () => {
 
-        const modalImage = document.querySelector('.modal_image');
+                popupContainer.innerHTML += `
+                <div class="popup_content">
 
-        // Select the card images
+                    <img src="${cardImage.src}" class="popup_image">
+                    <span class="material-symbols-outlined">
+                    close
+                    </span>
+    
+                </div>`
 
-        const cardImages = document.querySelectorAll('.card_images');
+                // Remove the default hidden class on popup images
 
-        cardImages.forEach(image => {
+                popupContainer.classList.remove('hidden');
 
-            // If i click on the image
+                // Add event listener to the close button
 
-            image.addEventListener('click', () => {
+                const closeButton = document.querySelector('.material-symbols-outlined');
 
-                // Remove the class hidden and show the modal image
+                closeButton.addEventListener('click', () => {
 
-                modalImage.classList.remove('hidden');
-                modalImage.src = image.src;
-                modalBackground.style.display = 'block';
+                    popupContainer.classList.add('hidden');
 
-            })
-
-            modalImage.addEventListener('click', () => {
-
-                // Remove the class hidden and show the modal image
-
-                modalImage.classList.add('hidden');
-                modalBackground.style.display = '';
+                })
 
             })
 
-        });
+        })
 
 
         // Cards Animations
 
-        // Select all the cards just created
-
-        const cardsList = document.querySelectorAll('.card');
-
-        // Loop over the cards list
+        const cardsList = document.querySelectorAll('.card')
 
         cardsList.forEach(card => {
 
@@ -127,7 +121,7 @@ axios.get(endpoint)
     .catch(error => {
 
         // handle error
+
         console.log(error);
 
     })
-
