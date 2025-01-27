@@ -9,6 +9,7 @@
 
 // Display Output Elements //
 
+const mainContainer = document.getElementById('main_container');
 const cardsContainer = document.querySelector('.cards_container');
 
 // API //
@@ -42,17 +43,60 @@ axios.get(endpoint)
             cardsContainer.innerHTML += `
                 <div class="card">
                     <img src="./img/pin.svg" class="card_pin">
-                    <img src="${url}" class="images">
+                    <img src="${url}" class="card_images">
                     <span>${date}</span>
                     <h2>${title.toUpperCase()}</h2>
                 </div>
-
-                <div class="modal_container">
-                    <img class="modal_image hidden">
-                </div>
             `;
-
         }
+
+        mainContainer.innerHTML += `
+            <div class="modal_background">
+            <div class="modal_content">
+                <img class="modal_image hidden">
+            </div>
+            </div>
+        `;
+
+
+        // Images Popup
+
+        // Select the modal container
+
+        const modalBackground = document.querySelector('.modal_background');
+
+        // Select the modal image
+
+        const modalImage = document.querySelector('.modal_image');
+
+        // Select the card images
+
+        const cardImages = document.querySelectorAll('.card_images');
+
+        cardImages.forEach(image => {
+
+            // If i click on the image
+
+            image.addEventListener('click', () => {
+
+                // Remove the class hidden and show the modal image
+
+                modalImage.classList.remove('hidden');
+                modalImage.src = image.src;
+                modalBackground.style.display = 'block';
+
+            })
+
+            modalImage.addEventListener('click', () => {
+
+                // Remove the class hidden and show the modal image
+
+                modalImage.classList.add('hidden');
+                modalBackground.style.display = '';
+
+            })
+
+        });
 
 
         // Cards Animations
@@ -78,43 +122,6 @@ axios.get(endpoint)
             })
 
         })
-
-
-        // Select the modal image
-
-        const modalImage = document.querySelector(".modal_image");
-
-        // Select the card images
-
-        const images = document.querySelectorAll(".images");
-
-
-        // Loop over the images
-
-        images.forEach(image => {
-
-            // If i click on the image
-
-            image.addEventListener('click', () => {
-
-                // Remove the class hidden and show the modal image
-
-                modalImage.classList.remove('hidden');
-                modalImage.src = image.src;
-
-            })
-        });
-
-
-        // If i click on the modal image
-
-        modalImage.addEventListener('click', () => {
-
-            // Hide the modal image by adding the class hidden
-
-            modalImage.classList.add('hidden');
-
-        });
 
     })
     .catch(error => {
