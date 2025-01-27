@@ -71,10 +71,11 @@ axios.get(endpoint)
                 popupContainer.innerHTML += `
                 <div class="popup_content">
 
-                    <img src="${cardImage.src}" class="popup_image">
                     <span class="material-symbols-outlined">
                     close
                     </span>
+                    <img src="${cardImage.src}" class="popup_image">
+
     
                 </div>`
 
